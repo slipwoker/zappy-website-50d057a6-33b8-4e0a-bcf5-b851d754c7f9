@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>טיפול הומאופתי לתינוקות וילדים — גבי זסלבסקי</title>
+    <meta name="description" content="פתרונות הומאופתיים טבעיים לדלקות גרון, קוליק ובעיות שינה אצל תינוקות וילדים. גבי זסלבסקי מציעה טיפול עדין ויעיל ללא תופעות לוואי.">
+    <meta name="keywords" content="טיפול הומאופתי לתינוקות, הומאופתיה, טיפול בדלקות גרון, רפואה משלימה לילדים, הומאופתיה לתינוקות">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '50d057a6-33b8-4e0a-bcf5-b851d754c7f9',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="טיפול הומאופתי לתינוקות וילדים — גבי זסלבסקי">
+  <meta property="og:description" content="פתרונות הומאופתיים טבעיים לדלקות גרון, קוליק ובעיות שינה אצל תינוקות וילדים. גבי זסלבסקי מציעה טיפול עדין ויעיל ללא תופעות לוואי.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="טיפול הומאופתי לתינוקות וילדים — גבי זסלבסקי">
+  <meta name="twitter:description" content="פתרונות הומאופתיים טבעיים לדלקות גרון, קוליק ובעיות שינה אצל תינוקות וילדים. גבי זסלבסקי מציעה טיפול עדין ויעיל ללא תופעות לוואי.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: #333 !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))), .sub-menu:not(:has(li)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; background: transparent !important; border: none !important; cursor: pointer !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      #mic-access-tool-general-button, .mic-access-tool-general-button,
+      #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+      ._access-icon, #mic-access-tool-box, .mic-access-tool-box,
+      #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"], ._access-menu {
+        display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
+      }
+    </style>
+</head>
+<body>
+
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+  
+  <button class="phone-header-btn" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+  
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="/" class="logo-link">
+        <img src="/assets/business-logo.webp" alt="גבי זסלבסקי" class="logo" />
+      </a>
+    </div>
+    
+    <ul class="nav-menu" id="navMenu"><li><a href="/treatments">טיפולים</a></li><li><a href="/about">אודות</a></li></ul>
+    
+    <div class="nav-cta-container">
+      <a href="/contact" class="nav-cta-btn">צור קשר</a>
+    </div>
+  </div>
+</nav>
+  
+  <main>
+    <section class="home-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-card">
+  <!-- Background Image -->
+  <img data-hero-bg="true" class="home-hero-bg" data-placeholder="home-hero-bg" data-context="Warm, calming scene of a gentle mother holding a peaceful baby or young child in a bright, natural-light clinic setting with soft pastel colors, plants, and wooden elements. The image should convey trust, safety, and natural complementary health care for children. Soft focus, professional medical atmosphere with a nurturing, family-centered feel. Natural daylight streaming through windows." width="1920" height="1080" src="/assets/site-home-hero-bg.webp" alt="רקע טיפול משלים לילדים">
+  
+  <!-- Scrim Overlay for Text Legibility -->
+  <div class="home-hero-scrim"></div>
+  
+  <!-- Content Overlay -->
+  <div class="home-hero-content">
+    <div class="home-hero-card">
+      <h1>טיפול טבעי ומלא אהבה לילדכם</h1>
+      <h3>גישה משפחתית ומקצועית לרפואה משלימה עבור תינוקות וילדים. צור קשר עוד היום לקביעת פגישת ייעוץ ראשונית.</h3>
+      <div class="home-hero-ctas">
+        <a href="/contact" class="home-hero-btn home-hero-btn-primary">יצירת קשר לקביעת פגישה</a>
+        <a href="/treatments#faq" class="home-hero-btn home-hero-btn-secondary">שאלות נפוצות</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom Wave Divider -->
+  <div class="home-hero-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 L0,35 Q100,28 200,35 T400,35 Q500,28 600,35 T800,35 Q900,28 1000,35 T1200,35 L1200,60 Z" fill="var(--bg-light)" opacity="0.4"></path>
+      <path d="M0,60 L0,40 Q100,33 200,40 T400,40 Q500,33 600,40 T800,40 Q900,33 1000,40 T1200,40 L1200,60 Z" fill="var(--bg-light)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-how-it-works-section" data-layout-spec="בית-how-it-works">
+  <div class="home-how-it-works-container">
+    <div class="home-how-it-works-header">
+      <h2>איך התהליך עובד</h2>
+      <p>אני מאמינה בהקשבה מדוייקת, בהתאמה אישית ובמעקב צמוד. כל תהליך טיפולי מותאם במיוחד לצרכים של הילד שלכם, עם מענה רגיש ומקצועי בכל שלב.</p>
+    </div>
+
+    <div class="home-how-it-works-steps">
+      <div class="home-how-it-works-step">
+        <div class="home-how-it-works-step-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M24 16V24L28 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>שיחת היכרות קצרה</h3>
+        <p>נתחיל בשיחה טלפונית קצרה שבה אקשיב לסיפור שלכם, אבין את הצרכים של הילד ואבדוק אם הטיפול ההומאופתי מתאים למצב. זה זמן להרגיש בנוח ולשאול שאלות.</p>
+      </div>
+
+      <div class="home-how-it-works-step">
+        <div class="home-how-it-works-step-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M38 8H10C8.89543 8 8 8.89543 8 10V38C8 39.1046 8.89543 40 10 40H38C39.1046 40 40 39.1046 40 38V10C40 8.89543 39.1046 8 38 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M16 20H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M16 28H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>תכנית מותאמת אישית</h3>
+        <p>לאחר השיחה, אבנה עבורכם תכנית טיפולית אישית המבוססת על הצרכים הייחודיים של הילד שלכם. התכנית כוללת המליצות ברורות, הנחיות מעשיות ומינונים מדוייקים.</p>
+      </div>
+
+      <div class="home-how-it-works-step">
+        <div class="home-how-it-works-step-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M44 24C44 18.6957 41.8929 13.6086 38.1421 9.85786C34.3914 6.10714 29.3043 4 24 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"></path>
+            <path d="M18 24L24 30L36 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3>מעקב והתאמות</h3>
+        <p>אני נשארת איתכם לאורך כל הדרך. נעקוב יחד אחרי ההתקדמות, נבצע התאמות במידת הצורך ונוודא שהטיפול מביא לתוצאות הטובות ביותר עבור הילד שלכם.</p>
+      </div>
+    </div>
+
+    <div class="home-how-it-works-footer">
+      <p>יש לכם שאלות לגבי התאמת הטיפול למצב שלכם? <a href="/contact">צרו איתי קשר</a> ואשמח לעזור.</p>
+    </div>
+  </div>
+
+  <div class="home-how-it-works-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 L0,20 L600,15 L1200,20 L1200,40 Z" fill="var(--bg-light)"></path>
+      <line x1="0" y1="20" x2="580" y2="17" stroke="var(--primary)" stroke-width="1" opacity="0.3"></line>
+      <line x1="620" y1="17" x2="1200" y2="20" stroke="var(--primary)" stroke-width="1" opacity="0.3"></line>
+      <path d="M580,17 L600,10 L620,17" stroke="var(--primary)" stroke-width="1.5" fill="none" opacity="0.5"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-services-section" data-layout-spec="בית-services">
+  <div class="home-services-container">
+    <div class="home-services-header">
+      <h2>תחומי טיפול נפוצים שאנו מלווים</h2>
+      <p>אנו מאמינים בגישה עדינה וממוקדת ילד, כאשר כל מקרה מטופל באופן אישי ומותאם. הטיפול ההומאופתי מתמקד בחיזוק המערכת החיסונית הטבעית של הילד ובמתן מענה עדין ויעיל לתסמינים.</p>
+    </div>
+
+    <div class="home-services-grid">
+      <article class="home-services-card">
+        <div class="home-services-card-image">
+          <img data-placeholder="home-services-image-1" data-context="Soft natural-light photo of a happy child smiling, throat area visible, warm clinic environment with pastel colors, shallow depth of field, professional medical photography for pediatric homeopathy practice" width="600" height="300" src="/assets/site-home-services-image-1.webp" alt="ילד מחייך בסביבה קלינית חמה">
+        </div>
+        <div class="home-services-card-content">
+          <h3>גרון ודלקות גרון חוזרות</h3>
+          <p>הורים רבים מבחינים בכאבי גרון תכופים, קושי בבליעה או אודם חוזר באזור הגרון.</p>
+          <p>הייעוץ שלנו מתמקד בחיזוק המערכת החיסונית ובמניעת הישנות הדלקות באמצעים טבעיים ועדינים.</p>
+        </div>
+      </article>
+
+      <article class="home-services-card">
+        <div class="home-services-card-image">
+          <img data-placeholder="home-services-image-2" data-context="Gentle photo of a child with focus on ear area, peaceful expression, natural lighting in a clean medical setting, soft pastel background, professional pediatric healthcare photography" width="600" height="300" src="/assets/site-home-services-image-2.webp" alt="ילד במצב רגוע עם דגש על אזור האוזניים">
+        </div>
+        <div class="home-services-card-content">
+          <h3>אוזניים ואי נוחות חוזרת</h3>
+          <p>כאבי אוזניים חוזרים, תחושת לחץ או נוזלים באוזן הם תופעות שכיחות אצל ילדים קטנים.</p>
+          <p>אנו מציעים גישה הומאופתית שמטרתה להפחית את התסמינים ולחזק את מערכת הניקוז הטבעית של האוזן.</p>
+        </div>
+      </article>
+
+      <article class="home-services-card">
+        <div class="home-services-card-image">
+          <img data-placeholder="home-services-image-3" data-context="Peaceful sleeping child in soft natural light, breathing comfortably, serene bedroom environment with white linens, shallow depth of field, professional sleep health photography for pediatric practice" width="600" height="300" src="/assets/site-home-services-image-3.webp" alt="ילד ישן בשלווה בסביבה רכה">
+        </div>
+        <div class="home-services-card-content">
+          <h3>נשימה ושינה (שקדים שלישיים)</h3>
+          <p>נחירות, נשימה דרך הפה או הפרעות שינה עשויות להצביע על בעיות בשקדים השלישיים.</p>
+          <p>הטיפול שלנו מכוון לשיפור איכות הנשימה והשינה באמצעות תמיכה הומאופתית עדינה ויעילה.</p>
+        </div>
+      </article>
+
+      <article class="home-services-card">
+        <div class="home-services-card-image">
+          <img data-placeholder="home-services-image-4" data-context="Child playing outdoors in spring season, natural environment with flowers and greenery, bright natural light, happy and healthy expression, professional lifestyle photography for allergy treatment context" width="600" height="300" src="/assets/site-home-services-image-4.webp" alt="ילד משחק בחוץ בעונת האביב">
+        </div>
+        <div class="home-services-card-content">
+          <h3>רגישויות עונתיות</h3>
+          <p>תסמינים כמו נזלת, עיניים דומעות או עיטושים חוזרים בעונות מסוימות מעידים על רגישות.</p>
+          <p>אנו מציעים פתרונות הומאופתיים שמסייעים להקל על התסמינים ולחזק את ההתמודדות הטבעית של הגוף.</p>
+        </div>
+      </article>
+
+      <article class="home-services-card">
+        <div class="home-services-card-image">
+          <img data-placeholder="home-services-image-5" data-context="Happy child eating healthy food, comfortable dining environment, natural light, peaceful expression showing digestive comfort, professional pediatric wellness photography with warm tones" width="600" height="300" src="/assets/site-home-services-image-5.webp" alt="ילד אוכל בנוחות במהלך ארוחה">
+        </div>
+        <div class="home-services-card-content">
+          <h3>נוחות עיכולית</h3>
+          <p>כאבי בטן, עצירות או אי נוחות עיכולית הם תלונות שכיחות שמשפיעות על איכות החיים של הילד.</p>
+          <p>הגישה ההומאופתית שלנו מתמקדת באיזון מערכת העיכול ובהפחתת אי הנוחות בצורה טבעית ובטוחה.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="home-services-footer">
+      <a href="/treatments" class="home-services-link">צפייה בכל תחומי הטיפול <i class="fas fa-arrow-left" style="margin-inline-start: 6px;"></i></a>
+    </div>
+  </div>
+
+  <div class="home-services-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="home-services-divider-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#F7F6F4;stop-opacity:1"></stop>
+          <stop offset="100%" style="stop-color:#F3F2EF;stop-opacity:1"></stop>
+        </linearGradient>
+      </defs>
+      <path d="M0,40 L0,35 L1200,5 L1200,40 Z" fill="url(#home-services-divider-gradient)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-testimonials-section" data-layout-spec="בית-testimonials">
+  <div class="home-testimonials-container">
+    <div class="home-testimonials-header">
+      <h2>הורים משתפים בחוויה שלהם</h2>
+    </div>
+    
+    <div class="home-testimonials-grid">
+      <article class="home-testimonial-card card-bordered">
+        <div class="home-testimonial-content">
+          <p class="home-testimonial-quote">"גבי הקשיבה בסבלנות, הסבירה בבהירות והתאימה את הטיפול בדיוק לצרכים של הבת שלי. הרגשנו שאנחנו בידיים טובות."</p>
+          <h3 class="home-testimonial-name">ר.מ.</h3>
+          <p class="home-testimonial-context">הורה לילדה בת 3</p>
+        </div>
+      </article>
+
+      <article class="home-testimonial-card card-bordered">
+        <div class="home-testimonial-content">
+          <p class="home-testimonial-quote">"הגישה העדינה והמקצועית של גבי עזרה לנו להתמודד עם דלקות גרון חוזרות. קיבלנו כלים מעשיים ומעקב צמוד."</p>
+          <h3 class="home-testimonial-name">ד.ל.</h3>
+          <p class="home-testimonial-context">הורה לתינוק בן שנה</p>
+        </div>
+      </article>
+
+      <article class="home-testimonial-card card-bordered">
+        <div class="home-testimonial-content">
+          <p class="home-testimonial-quote">"אחרי מספר פגישות הרגשנו שינוי משמעותי. גבי מסבירה הכל בצורה ברורה ונותנת תחושת ביטחון אמיתית."</p>
+          <h3 class="home-testimonial-name">מ.ש.</h3>
+          <p class="home-testimonial-context">הורה לילד בן 5</p>
+        </div>
+      </article>
+
+      <article class="home-testimonial-card card-bordered">
+        <div class="home-testimonial-content">
+          <p class="home-testimonial-quote">"הטיפול ההומאופתי שקיבלנו היה עדין ומותאם אישית. גבי זמינה לשאלות ומלווה אותנו בכל שלב."</p>
+          <h3 class="home-testimonial-name">א.כ.</h3>
+          <p class="home-testimonial-context">הורה לתאומים בני 4</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="home-testimonials-cta">
+      <p>יש לכם שאלות? נשמח לענות ולהכיר אתכם <a href="/contact" class="home-testimonials-link">צרו קשר עכשיו</a></p>
+    </div>
+  </div>
+
+  <div class="home-testimonials-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="testimonials-fade-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1"></stop>
+          <stop offset="50%" style="stop-color:#F7F6F4;stop-opacity:0.6"></stop>
+          <stop offset="100%" style="stop-color:#0F1B2D;stop-opacity:0.95"></stop>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1200" height="200" fill="url(#testimonials-fade-gradient)"></rect>
+    </svg>
+  </div>
+</section>
+
+<section class="home-cta-section" data-layout-spec="בית-cta">
+  <div class="home-cta-container">
+    <div class="home-cta-content">
+      <h2 class="home-cta-title">מוכנים לצעד הבא בבהירות ובשקט?</h2>
+      <p class="home-cta-description">ספרו לנו מה אתם רואים והצטרפו לשיחה קצרה כדי להבין אם ייעוץ מתאים לכם. אנחנו כאן כדי להקשיב ולהדריך בדרך הטבעית והבטוחה לילדכם.</p>
+      <div class="home-cta-buttons">
+        <a href="/contact" class="home-cta-btn home-cta-btn-primary">צרו קשר</a>
+        <a href="/treatments" class="home-cta-btn home-cta-btn-secondary">גלו את הטיפולים</a>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-column footer-about">
+        <img src="/assets/business-logo.webp" alt="גבי זסלבסקי" class="logo" />
+        <p class="footer-description">מרכז לבריאות ורפואה משלימה, המציע טיפולים הוליסטיים ומקצועיים לשיפור איכות החיים והבריאות.</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3 class="footer-title">קישורים מהירים</h3>
+        <ul class="footer-links">
+          <li><a href="/treatments">טיפולים</a></li>
+          <li><a href="/about">אודות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3 class="footer-title">יצירת קשר</h3>
+        <ul class="footer-contact">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:[business_email]">[business_email]</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a href="tel:[business_phone]">[business_phone]</a>
+          </li>
+          <li><a href="/"><i class="fas fa-map-marker-alt"></i>
+            <span>[business_address]</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3 class="footer-title">עקבו אחרינו</h3>
+        <div class="social-links">
+          <a href="[facebook_handle]" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="[instagram_handle]" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="[whatsapp_handle]" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <span class="separator">|</span>
+        <a href="/terms">Terms &amp; Conditions</a>
+        <span class="separator">|</span>
+        <a href="/accessibility">Accessibility</a>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2026 גבי זסלבסקי. All rights reserved.</p>
+      </div>
+      <div class="footer-attribution">
+        <a href="https://zappy5.com" target="_blank" class="zappy-attribution" rel="noopener noreferrer">Generated by Zappy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+</body>
+</html>

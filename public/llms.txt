@@ -1,0 +1,47 @@
+# Business — Generative Engine Optimization Map
+
+---
+
+## Pages
+
+### בית
+https://example.com
+פתרונות הומאופתיים טבעיים לדלקות גרון, קוליק ובעיות שינה אצל תינוקות וילדים. גבי זסלבסקי מציעה טיפול עדין ויעיל ללא תופעות לוואי.
+
+### טיפולים
+https://example.com/treatments
+טיפולים הומאופתיים מותאמים אישית לתינוקות וילדים: דלקות גרון חוזרות, קוליק, בעיות עיכול ושינה. גישה עדינה ובטוחה לבריאות ילדכם.
+
+### אודות
+https://example.com/about
+היכרות עם גבי זסלבסקי, מומחית להומאופתיה ורפואה משלימה לתינוקות וילדים. ניסיון עשיר בטיפול טבעי ובטוח בבעיות בריאות שכיחות.
+
+### צור קשר
+https://example.com/contact
+צרו קשר עוד היום לקביעת פגישת ייעוץ ראשונית. גבי זסלבסקי זמינה לשאלות ולתיאום טיפול הומאופתי מותאם אישית לתינוקכם או ילדכם.
+
+## Legal & Policy
+
+### Privacy Policy
+https://example.com/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://example.com/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://example.com/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Business
+---
+
+# Additional Resources
+
+- **Sitemap**: https://example.com/sitemap.xml
+- **Robots.txt**: https://example.com/robots.txt
