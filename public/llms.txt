@@ -1,6 +1,4 @@
-# גבי זסלבסקי — Generative Engine Optimization Map
-
-> A בריאות ורפואה משלימה business.
+# Business — Generative Engine Optimization Map
 
 ---
 
@@ -40,15 +38,7 @@ Information about WCAG compliance and accessibility features.
 
 # Business Context (for LLM understanding)
 
-## About גבי זסלבסקי
-גבי זסלבסקי is a business in the בריאות ורפואה משלימה industry.
-
-## Target Audience
-תינוקות וילדים
-
-## Industry
-בריאות ורפואה משלימה
-
+## About Business
 ---
 
 # Additional Resources
