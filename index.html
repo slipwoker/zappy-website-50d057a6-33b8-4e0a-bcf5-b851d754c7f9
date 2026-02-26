@@ -242,430 +242,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
     <!-- Mickidum Accessibility Toolbar -->
     <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
-
-<style data-zappy-section-v2-css="true">
-/* V2 Regenerated Section CSS */
-.home-hero-section {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  min-height: 600px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-}
-
-.home-hero-section .home-hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 45% center;
-  z-index: 0;
-  display: block;
-}
-
-.home-hero-section .home-hero-scrim {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    rgba(15, 27, 45, 0.90) 0%, 
-    rgba(15, 27, 45, 0.85) 35%, 
-    rgba(15, 27, 45, 0.65) 65%, 
-    rgba(15, 27, 45, 0.58) 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.home-hero-section .home-hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 580px;
-  padding: 0 32px;
-  margin-inline-start: 5vw;
-  text-align: start;
-  color: var(--text-light);
-}
-
-.home-hero-section h1 {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--text-light);
-  margin: 0 0 20px 0;
-  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-}
-
-.home-hero-section h3 {
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--text-light);
-  margin: 0 0 32px 0;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
-  opacity: 0.95;
-}
-
-.home-hero-section .home-hero-cta-group {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.home-hero-section .home-hero-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  cursor: pointer;
-  min-height: 48px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.home-hero-section .btn-primary {
-  background-color: var(--primary);
-  color: var(--text-light);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(43, 179, 177, 0.35);
-}
-
-.home-hero-section .btn-primary:hover {
-  background-color: #25a0a0;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(43, 179, 177, 0.45);
-}
-
-.home-hero-section .btn-secondary {
-  background-color: transparent;
-  color: var(--text-light);
-  border: 2px solid var(--text-light);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.home-hero-section .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.12);
-  border-color: var(--text-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-}
-
-.home-hero-section .home-hero-fade-transition {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 20vh;
-  background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0) 0%, 
-    rgba(255, 255, 255, 0.85) 100%);
-  z-index: 2;
-  pointer-events: none;
-}
-
-@media (max-width: 768px) {
-  .home-hero-section {
-    min-height: 100vh;
-    height: auto;
-    align-items: flex-start;
-    padding-top: 120px;
-  }
-
-  .home-hero-section .home-hero-bg {
-    object-position: center center;
-  }
-
-  .home-hero-section .home-hero-content {
-    max-width: 100%;
-    padding: 0 20px;
-    margin-inline-start: 0;
-    margin-top: 40px;
-  }
-
-  .home-hero-section h1 {
-    font-size: 36px;
-    line-height: 1.25;
-    margin-bottom: 16px;
-  }
-
-  .home-hero-section h3 {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-
-  .home-hero-section .home-hero-cta-group {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .home-hero-section .home-hero-cta {
-    width: 100%;
-    padding: 16px 24px;
-    font-size: 15px;
-  }
-
-  .home-hero-section .home-hero-fade-transition {
-    height: 15vh;
-  }
-}
-
-@media (max-width: 480px) {
-  .home-hero-section {
-    padding-top: 100px;
-  }
-
-  .home-hero-section .home-hero-content {
-    padding: 0 16px;
-    margin-top: 20px;
-  }
-
-  .home-hero-section h1 {
-    font-size: 32px;
-  }
-
-  .home-hero-section h3 {
-    font-size: 16px;
-  }
-}
-</style>
-
-<style data-zappy-section-v2-css="true">
-/* V2 Regenerated Section CSS */
-.index-hero-section {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  direction: rtl;
-}
-
-/* Background Image */
-.index-hero-section .index-hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  display: block;
-}
-
-/* Scrim Overlay - Directional Gradient for Text Legibility */
-.index-hero-section .index-hero-scrim {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(90deg, 
-    rgba(0, 0, 0, 0.75) 0%, 
-    rgba(0, 0, 0, 0.65) 35%, 
-    rgba(0, 0, 0, 0.35) 70%, 
-    rgba(0, 0, 0, 0) 100%);
-}
-
-/* Content Wrapper */
-.index-hero-section .index-hero-content-wrapper {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 6vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100%;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-}
-
-/* Glass Card */
-.index-hero-section .index-hero-card {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 3px;
-  padding: 48px 52px;
-  max-width: 580px;
-  box-shadow: 0 18px 44px rgba(14, 47, 107, 0.18);
-  text-align: start;
-  direction: rtl;
-}
-
-/* H1 Headline */
-.index-hero-section .index-hero-card h1 {
-  font-family: 'Heebo', 'Assistant', 'Rubik', system-ui, sans-serif;
-  font-size: 48px;
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--text-dark);
-  margin: 0 0 16px 0;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* H3 Supporting Line */
-.index-hero-section .index-hero-card h3 {
-  font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.45;
-  color: var(--text-dark);
-  margin: 0 0 28px 0;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.12);
-}
-
-/* CTA Row */
-.index-hero-section .index-hero-cta-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  direction: rtl;
-}
-
-/* Primary CTA Button */
-.index-hero-section .btn-primary.index-hero-cta {
-  background: var(--primary);
-  color: var(--text-light);
-  padding: 12px 28px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  cursor: pointer;
-}
-
-.index-hero-section .btn-primary.index-hero-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(43, 179, 177, 0.35);
-  background: #1F9EAB;
-}
-
-/* Secondary CTA Button */
-.index-hero-section .btn-ghost.index-hero-cta-secondary {
-  background: transparent;
-  color: var(--text-dark);
-  border: 1px solid rgba(14, 47, 107, 0.24);
-  padding: 12px 26px;
-  border-radius: 12px;
-  font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-  cursor: pointer;
-}
-
-.index-hero-section .btn-ghost.index-hero-cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.5);
-  border-color: rgba(14, 47, 107, 0.35);
-  transform: translateY(-1px);
-}
-
-/* Bottom Fade Overlay - Soft Transition to Next Section */
-.index-hero-section .index-hero-fade-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 12vh;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0) 0%, 
-    rgba(255, 255, 255, 0.85) 100%);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .index-hero-section {
-    height: 100vh;
-    min-height: 600px;
-  }
-  
-  .index-hero-section .index-hero-content-wrapper {
-    padding: 100px 16px 60px 16px;
-    align-items: flex-start;
-    padding-top: 120px;
-  }
-  
-  .index-hero-section .index-hero-card {
-    padding: 28px 24px;
-    max-width: 100%;
-  }
-  
-  .index-hero-section .index-hero-card h1 {
-    font-size: 36px;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-  
-  .index-hero-section .index-hero-card h3 {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 24px;
-  }
-  
-  .index-hero-section .index-hero-cta-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-  
-  .index-hero-section .btn-primary.index-hero-cta,
-  .index-hero-section .btn-ghost.index-hero-cta-secondary {
-    width: 100%;
-    text-align: center;
-    padding: 14px 24px;
-  }
-  
-  .index-hero-section .index-hero-scrim {
-    background: linear-gradient(180deg, 
-      rgba(0, 0, 0, 0.65) 0%, 
-      rgba(0, 0, 0, 0.55) 50%, 
-      rgba(0, 0, 0, 0.35) 100%);
-  }
-  
-  .index-hero-section .index-hero-fade-overlay {
-    height: 10vh;
-  }
-}
-</style>
     <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-dropdown-submenu-styles">
@@ -725,16 +301,16 @@
 
   <nav class="navbar" dir="rtl">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-    <svg class="hamburger-icon" width="24" height="24" viewbox="0 0 24 24" fill="none">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
     </svg>
-    <svg class="close-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" style="display:none;">
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
       <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
     </svg>
   </button>
   
   <button class="phone-header-btn" aria-label="Call">
-    <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
     </svg>
   </button>
@@ -755,27 +331,36 @@
 </nav>
   
   <main>
-    <section class="index-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-card">
+    <section class="home-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-card">
   <!-- Background Image -->
-  <img data-hero-bg="true" class="index-hero-bg" data-context="Bright, airy pediatric complementary medicine clinic room with soft natural daylight streaming through large windows, gentle neutral color palette (warm whites, soft beiges, pale mint greens), modern minimalist medical furniture with rounded edges, plush child-friendly seating, potted plants for warmth, clean organized shelves with natural remedies visible, professional yet welcoming atmosphere, shot from a wide angle showing spacious layout with ample negative space, suitable as a full-bleed hero background for a Hebrew pediatric wellness website" data-preserve-bg="0" width="1920" height="1080" src="/assets/section-בית-hero-index-hero-bg-1.webp" alt="מרפאת רפואה משלימה לילדים - אווירה רגועה ומזמינה" data-zappy-editable-image="true">
+  <img data-hero-bg="true" class="home-hero-bg" data-placeholder="home-hero-bg" data-context="Warm, calming scene of a gentle mother holding a peaceful baby or young child in a bright, natural-light clinic setting with soft pastel colors, plants, and wooden elements. The image should convey trust, safety, and natural complementary health care for children. Soft focus, professional medical atmosphere with a nurturing, family-centered feel. Natural daylight streaming through windows." width="1920" height="1080" src="/assets/site-home-hero-bg.webp" alt="רקע טיפול משלים לילדים">
   
   <!-- Scrim Overlay for Text Legibility -->
-  <div class="index-hero-scrim" aria-hidden="true"></div>
+  <div class="home-hero-scrim"></div>
   
-  <!-- Content Overlay Card -->
-  <div class="index-hero-content-wrapper">
-    <div class="index-hero-card">
-      <h1>רפואה משלימה לתינוקות וילדים</h1>
-      <h3>טיפול טבעי, בטוח ומקצועי לבריאות ילדכם</h3>
-      <div class="index-hero-cta-row">
-        <a href="#contact" class="btn-primary index-hero-cta">קביעת פגישה</a>
-        <a href="#about" class="btn-ghost index-hero-cta-secondary">למידע נוסף</a>
+  <!-- Content Overlay -->
+  <div class="home-hero-content">
+    <div class="home-hero-card">
+      <h1>
+
+טיפול הומאופתי טבעי לדלקת גרון, אוזניים ושקד שלישי
+
+</h1>
+      <h3>טיפול הומיאופתי טבעי ומותאם אישית לדלקות אוזניים, דלקות גרון והגדלת השקד השלישי  לתינוקות וילדים, המכוון לחיזוק כוחות הריפוי הטבעיים של הגוף ולמניעת חזרות של הדלקות.&nbsp; &nbsp;</h3>
+      <div class="home-hero-ctas">
+        <a href="/contact" class="home-hero-btn home-hero-btn-primary">יצירת קשר לקביעת פגישה</a>
+        <a href="/treatments#faq" class="home-hero-btn home-hero-btn-secondary">שאלות נפוצות</a>
       </div>
     </div>
   </div>
   
-  <!-- Bottom Fade Transition -->
-  <div class="index-hero-fade-overlay" aria-hidden="true"></div>
+  <!-- Bottom Wave Divider -->
+  <div class="home-hero-divider-wrapper">
+    <svg aria-hidden="true" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 L0,35 Q100,28 200,35 T400,35 Q500,28 600,35 T800,35 Q900,28 1000,35 T1200,35 L1200,60 Z" fill="var(--bg-light)" opacity="0.4"></path>
+      <path d="M0,60 L0,40 Q100,33 200,40 T400,40 Q500,33 600,40 T800,40 Q900,33 1000,40 T1200,40 L1200,60 Z" fill="var(--bg-light)"></path>
+    </svg>
+  </div>
 </section>
 
 <section class="home-how-it-works-section" data-layout-spec="בית-how-it-works">
@@ -789,7 +374,7 @@
 
     <div class="home-how-it-works-steps zappy-preserve-css-grid" style="display: grid; grid-template-columns: 347.94px 347.95px 347.95px;" id="zappy-auto-grid-1771766621991-qx0xj9" data-zappy-auto-grid="true" data-original-item-width="348" data-original-gap="32px"><div class="home-how-it-works-step">
         <div class="home-how-it-works-step-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M24 16V24L28 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
@@ -798,7 +383,7 @@
         <p class="">נתחיל בשיחה טלפונית קצרה שבה אקשיב לסיפור שלכם, אבין את הצרכים של הילד ואבדוק אם הטיפול ההומאופתי מתאים למצב. זה זמן להרגיש בנוח ולשאול שאלות.</p>
       </div><div class="home-how-it-works-step">
         <div class="home-how-it-works-step-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M38 8H10C8.89543 8 8 8.89543 8 10V38C8 39.1046 8.89543 40 10 40H38C39.1046 40 40 39.1046 40 38V10C40 8.89543 39.1046 8 38 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M16 20H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M16 28H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -808,7 +393,7 @@
         <p class="">לאחר השיחה, אבנה עבורכם תכנית טיפולית אישית המבוססת על הצרכים הייחודיים של הילד שלכם. התכנית כוללת המליצות ברורות, הנחיות מעשיות ומינונים מדוייקים.</p>
       </div><div class="home-how-it-works-step">
         <div class="home-how-it-works-step-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M44 24C44 18.6957 41.8929 13.6086 38.1421 9.85786C34.3914 6.10714 29.3043 4 24 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"></path>
             <path d="M18 24L24 30L36 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -824,11 +409,11 @@
   </div>
 
   <div class="home-how-it-works-divider-wrapper">
-    <svg aria-hidden="true" viewbox="0 0 1200 40" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,40 L0,20 L600,15 L1200,20 L1200,40 Z" fill="var(--bg-light)"></path>
       <line x1="0" y1="20" x2="580" y2="17" stroke="var(--primary)" stroke-width="1" opacity="0.3"></line>
       <line x1="620" y1="17" x2="1200" y2="20" stroke="var(--primary)" stroke-width="1" opacity="0.3"></line>
-      <path d="M580,17 L600,10 L620,17" stroke="var(--primary)" stroke-width="1.5" fill="var(--bg-light)" opacity="0.5"></path>
+      <path d="M580,17 L600,10 L620,17" stroke="var(--primary)" stroke-width="1.5" fill="none" opacity="0.5"></path>
     </svg>
   </div>
 </section>
@@ -840,23 +425,23 @@
       <p>אנו מאמינים בגישה עדינה וממוקדת ילד, כאשר כל מקרה מטופל באופן אישי ומותאם. הטיפול ההומאופתי מתמקד בחיזוק המערכת החיסונית הטבעית של הילד ובמתן מענה עדין ויעיל לתסמינים.</p>
     </div>
 
-    <div class="home-services-grid zappy-preserve-css-grid" style="display: grid; --zappy-grid-cols: repeat(4, minmax(0, 1fr));" id="zappy-auto-grid-1771766621997-e2836a" data-zappy-auto-grid="true" data-original-item-width="550" data-original-gap="24px"><article class="home-services-card">
+    <div class="home-services-grid zappy-preserve-css-grid" style="display: grid; grid-template-columns: 549.92px 549.92px;" id="zappy-auto-grid-1771766621997-e2836a" data-zappy-auto-grid="true" data-original-item-width="550" data-original-gap="24px"><article class="home-services-card">
         <div class="home-services-card-image">
-          <img data-placeholder="home-services-image-1" data-context="Soft natural-light photo of a happy child smiling, throat area visible, warm clinic environment with pastel colors, shallow depth of field, professional medical photography for pediatric homeopathy practice" width="600" height="300" src="/assets/site-home-services-image-1.webp" alt="ילד מחייך בסביבה קלינית חמה" data-element-type="image" data-element-id="img-1771766621951-1aa000xa7" class="zappy-editable-image" style="position: relative;" data-original-position="static">
+          <img data-placeholder="home-services-image-1" data-context="Soft natural-light photo of a happy child smiling, throat area visible, warm clinic environment with pastel colors, shallow depth of field, professional medical photography for pediatric homeopathy practice" width="600" height="300" src="/assets/site-home-services-image-1.webp" alt="ילד מחייך בסביבה קלינית חמה" data-element-type="image" data-element-id="img-1771766621951-1aa000xa7" class="zappy-editable-image" data-original-position="static" style="position: relative;">
         </div>
         <div class="home-services-card-content">
-          <h3 class="zappy-editable">גרון ודלקות גרון חוזרות</h3>
-          <p class="zappy-editable" style="">&nbsp; דלקות גרון חוזרות הן בעיה נפוצה אצל ילדים ומתבגרים. אחרי כמה סבבי אנטיביוטיקה, החיידקים עלולים לפתח עמידות ומערכת החיסון נחלשת, מה שיוצר מעגל מתיש של דלקות חוזרות. ההומיאופתיה מציעה פתרונות טבעיים ויעילים לשבור את המעגל הזה.&nbsp;&nbsp;</p>
-          <p class="zappy-editable" style="">&nbsp; חשוב להבחין בין דלקת גרון ויראלית, שבה אנטיביוטיקה אינה נחוצה, לבין דלקת חיידקית, כמו סטרפטוקוקוס A, שבה יש סיכון לסיבוכים ודורשים טיפול ממוקד. שימוש מיותר באנטיביוטיקה מחליש את המערכת החיסונית ומגביר עמידות חיידקים, וכך מחזיר את הילד למעגל הדלקות החוזרות.&nbsp;&nbsp;</p>
+          <h3 class="">גרון ודלקות גרון חוזרות</h3>
+          <p class="" style="">&nbsp; דלקות גרון חוזרות הן בעיה נפוצה אצל ילדים ומתבגרים. אחרי כמה סבבי אנטיביוטיקה, החיידקים עלולים לפתח עמידות ומערכת החיסון נחלשת, מה שיוצר מעגל מתיש של דלקות חוזרות. ההומיאופתיה מציעה פתרונות טבעיים ויעילים לשבור את המעגל הזה.&nbsp;&nbsp;</p>
+          <p class="" style="">&nbsp; חשוב להבחין בין דלקת גרון ויראלית, שבה אנטיביוטיקה אינה נחוצה, לבין דלקת חיידקית, כמו סטרפטוקוקוס A, שבה יש סיכון לסיבוכים ודורשים טיפול ממוקד. שימוש מיותר באנטיביוטיקה מחליש את המערכת החיסונית ומגביר עמידות חיידקים, וכך מחזיר את הילד למעגל הדלקות החוזרות.&nbsp;&nbsp;</p>
         </div>
       </article><article class="home-services-card">
         <div class="home-services-card-image">
-          <img data-placeholder="home-services-image-2" data-context="Gentle photo of a child with focus on ear area, peaceful expression, natural lighting in a clean medical setting, soft pastel background, professional pediatric healthcare photography" width="600" height="300" src="/assets/site-home-services-image-2.webp" alt="ילד במצב רגוע עם דגש על אזור האוזניים" data-element-type="image" data-element-id="img-1771766621951-5nz3s9oqz" class="zappy-editable-image" style="position: relative;" data-original-position="static">
+          <img data-placeholder="home-services-image-2" data-context="Gentle photo of a child with focus on ear area, peaceful expression, natural lighting in a clean medical setting, soft pastel background, professional pediatric healthcare photography" width="600" height="300" src="/assets/site-home-services-image-2.webp" alt="ילד במצב רגוע עם דגש על אזור האוזניים" data-element-type="image" data-element-id="img-1771766621951-5nz3s9oqz" class="zappy-editable-image" data-original-position="static" style="position: relative;">
         </div>
         <div class="home-services-card-content">
-          <h3 class="zappy-editable">אוזניים ואי נוחות חוזרת</h3>
-          <p class="zappy-editable" style="">כאבי אוזניים&nbsp; בהומיאופתיה, דלקת אוזניים - כמו כל דלקת או מחלה אחרת - נחשבת לביטוי חיצוני של הפרעה פנימית עמוקה. לכן, כדי לרפא את הילד באמת ולמנוע חזרות, חשוב לטפל בשורש הבעיה ולא רק בתסמינים.<br></p>
-          <p class="zappy-editable" style="">
+          <h3 class="">אוזניים ואי נוחות חוזרת</h3>
+          <p class="" style="">כאבי אוזניים&nbsp; בהומיאופתיה, דלקת אוזניים - כמו כל דלקת או מחלה אחרת - נחשבת לביטוי חיצוני של הפרעה פנימית עמוקה. לכן, כדי לרפא את הילד באמת ולמנוע חזרות, חשוב לטפל בשורש הבעיה ולא רק בתסמינים.<br></p>
+          <p class="" style="">
 
 במהלך הטיפול ההומיאופתי, הילד מקבל רמדי טבעי בלבד, שמפעיל ומחזק את כוחות הריפוי הטבעיים של הגוף. כך מתחיל תהליך ריפוי עמוק ושורשי שמוביל לבריאות שלמה ויציבה.  ניים חוזרים, תחושת לחץ או נוזלים באוזן הם תופעות שכיחות אצל ילדים קטנים.
 
@@ -864,27 +449,36 @@
         </div>
       </article><article class="home-services-card">
         <div class="home-services-card-image">
-          <img data-placeholder="home-services-image-3" data-context="Peaceful sleeping child in soft natural light, breathing comfortably, serene bedroom environment with white linens, shallow depth of field, professional sleep health photography for pediatric practice" width="600" height="300" src="/assets/site-home-services-image-3.webp" alt="ילד ישן בשלווה בסביבה רכה" data-element-type="image" data-element-id="img-1771766621951-1lm4eo7qx" class="zappy-editable-image" style="position: relative;" data-original-position="static">
+          <img data-placeholder="home-services-image-3" data-context="Peaceful sleeping child in soft natural light, breathing comfortably, serene bedroom environment with white linens, shallow depth of field, professional sleep health photography for pediatric practice" width="600" height="300" src="/assets/site-home-services-image-3.webp" alt="ילד ישן בשלווה בסביבה רכה" data-element-type="image" data-element-id="img-1771766621951-1lm4eo7qx" class="zappy-editable-image" data-original-position="static" style="position: relative;">
         </div>
         <div class="home-services-card-content">
-          <h3 class="zappy-editable">נשימה ושינה (שקדים שלישיים)</h3>
-          <p class="zappy-editable" style="">&nbsp; תינוקות וילדים עם אדנואיד (שקד שלישי) סובלים לעיתים מנחירות, נזלת כרונית, נוזלים באוזניים, שיעול, קשיי ריכוז ובעיות אכילה.&nbsp;</p>
-          <p class="zappy-editable" style="">&nbsp; בהומיאופתיה מטפלים בשקד השלישי בצורה טבעית, ללא ניתוח או הרדמה, על ידי איתור הסיבה הפנימית להופעתו והתאמת רמדי אישי. כך השקד נספג בחזרה, הסימפטומים נעלמים והבעיה לא חוזרת.&nbsp; &nbsp;&nbsp;</p>
+          <h3 class="">נשימה ושינה (שקדים שלישיים)</h3>
+          <p class="" style="">&nbsp; תינוקות וילדים עם אדנואיד (שקד שלישי) סובלים לעיתים מנחירות, נזלת כרונית, נוזלים באוזניים, שיעול, קשיי ריכוז ובעיות אכילה.&nbsp;</p>
+          <p class="" style="">&nbsp; בהומיאופתיה מטפלים בשקד השלישי בצורה טבעית, ללא ניתוח או הרדמה, על ידי איתור הסיבה הפנימית להופעתו והתאמת רמדי אישי. כך השקד נספג בחזרה, הסימפטומים נעלמים והבעיה לא חוזרת.&nbsp; &nbsp;&nbsp;</p>
         </div>
       </article><article class="home-services-card">
         <div class="home-services-card-image">
-          <img data-placeholder="home-services-image-4" data-context="Child playing outdoors in spring season, natural environment with flowers and greenery, bright natural light, happy and healthy expression, professional lifestyle photography for allergy treatment context" width="600" height="300" src="/assets/site-home-services-image-4.webp" alt="ילד משחק בחוץ בעונת האביב" data-element-type="image" data-element-id="img-1771766621951-3cf57notm" class="zappy-editable-image" style="position: relative;" data-original-position="static">
+          <img data-placeholder="home-services-image-4" data-context="Child playing outdoors in spring season, natural environment with flowers and greenery, bright natural light, happy and healthy expression, professional lifestyle photography for allergy treatment context" width="600" height="300" src="/assets/site-home-services-image-4.webp" alt="ילד משחק בחוץ בעונת האביב" data-element-type="image" data-element-id="img-1771766621951-3cf57notm" class="zappy-editable-image" data-original-position="static" style="position: relative;">
         </div>
         <div class="home-services-card-content">
-          <h3 class="zappy-editable">רגישויות עונתיות</h3>
-          <p class="zappy-editable" style="">
+          <h3 class="">רגישויות עונתיות</h3>
+          <p class="" style="">
 
 תסמינים כמו נזלת מתמשכת, עיניים דומעות או עיטושים חוזרים בעונות מסוימות מצביעים לעיתים על רגישות אלרגית. טיפול הומיאופתי מותאם אישית יכול להקל על התסמינים האלה,&nbsp;</p>
-          <p class="zappy-editable" style="">
+          <p class="" style="">
 
 לחזק את מנגנוני ההגנה הטבעיים של הגוף ולעזור לילד להתמודד בצורה טובה יותר עם השפעות העונה - באופן שמקטין תלות בתרופות ומשפר את איכות החיים.
 
 </p>
+        </div>
+      </article><article class="home-services-card" style="">
+        <div class="home-services-card-image">
+          <img data-placeholder="home-services-image-5" data-context="Happy child eating healthy food, comfortable dining environment, natural light, peaceful expression showing digestive comfort, professional pediatric wellness photography with warm tones" width="600" height="300" src="/assets/site-home-services-image-5.webp" alt="ילד אוכל בנוחות במהלך ארוחה" data-element-type="image" data-element-id="img-1771766621951-atn1p1b1l" class="zappy-editable-image" data-original-position="static" style="position: relative;">
+        </div>
+        <div class="home-services-card-content">
+          <h3 class="">נוחות עיכולית</h3>
+          <p class="">כאבי בטן, עצירות או אי נוחות עיכולית הם תלונות שכיחות שמשפיעות על איכות החיים של הילד.</p>
+          <p class="">הגישה ההומאופתית שלנו מתמקדת באיזון מערכת העיכול ובהפחתת אי הנוחות בצורה טבעית ובטוחה.</p>
         </div>
       </article></div>
 
@@ -894,14 +488,14 @@
   </div>
 
   <div class="home-services-divider-wrapper">
-    <svg aria-hidden="true" viewbox="0 0 1200 40" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="home-services-divider-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" style="stop-color:#F7F6F4;stop-opacity:1"></stop>
           <stop offset="100%" style="stop-color:#F3F2EF;stop-opacity:1"></stop>
         </linearGradient>
       </defs>
-      <path d="M0,40 L0,35 L1200,5 L1200,40 Z" fill="var(--bg-light)"></path>
+      <path d="M0,40 L0,35 L1200,5 L1200,40 Z" fill="url(#home-services-divider-gradient)"></path>
     </svg>
   </div>
 </section>
@@ -952,7 +546,7 @@
   </div>
 
   <div class="home-testimonials-divider-wrapper">
-    <svg aria-hidden="true" viewbox="0 0 1200 200" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="testimonials-fade-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1"></stop>
