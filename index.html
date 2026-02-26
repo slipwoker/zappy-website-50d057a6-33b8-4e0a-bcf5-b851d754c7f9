@@ -445,6 +445,227 @@
   }
 }
 </style>
+
+<style data-zappy-section-v2-css="true">
+/* V2 Regenerated Section CSS */
+.index-hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  direction: rtl;
+}
+
+/* Background Image */
+.index-hero-section .index-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  display: block;
+}
+
+/* Scrim Overlay - Directional Gradient for Text Legibility */
+.index-hero-section .index-hero-scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0.75) 0%, 
+    rgba(0, 0, 0, 0.65) 35%, 
+    rgba(0, 0, 0, 0.35) 70%, 
+    rgba(0, 0, 0, 0) 100%);
+}
+
+/* Content Wrapper */
+.index-hero-section .index-hero-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+/* Glass Card */
+.index-hero-section .index-hero-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+  padding: 48px 52px;
+  max-width: 580px;
+  box-shadow: 0 18px 44px rgba(14, 47, 107, 0.18);
+  text-align: start;
+  direction: rtl;
+}
+
+/* H1 Headline */
+.index-hero-section .index-hero-card h1 {
+  font-family: 'Heebo', 'Assistant', 'Rubik', system-ui, sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-dark);
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* H3 Supporting Line */
+.index-hero-section .index-hero-card h3 {
+  font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-dark);
+  margin: 0 0 28px 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* CTA Row */
+.index-hero-section .index-hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  direction: rtl;
+}
+
+/* Primary CTA Button */
+.index-hero-section .btn-primary.index-hero-cta {
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.index-hero-section .btn-primary.index-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(43, 179, 177, 0.35);
+  background: #1F9EAB;
+}
+
+/* Secondary CTA Button */
+.index-hero-section .btn-ghost.index-hero-cta-secondary {
+  background: transparent;
+  color: var(--text-dark);
+  border: 1px solid rgba(14, 47, 107, 0.24);
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-family: 'Assistant', 'Heebo', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.index-hero-section .btn-ghost.index-hero-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(14, 47, 107, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Bottom Fade Overlay - Soft Transition to Next Section */
+.index-hero-section .index-hero-fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12vh;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.85) 100%);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .index-hero-section {
+    height: 100vh;
+    min-height: 600px;
+  }
+  
+  .index-hero-section .index-hero-content-wrapper {
+    padding: 100px 16px 60px 16px;
+    align-items: flex-start;
+    padding-top: 120px;
+  }
+  
+  .index-hero-section .index-hero-card {
+    padding: 28px 24px;
+    max-width: 100%;
+  }
+  
+  .index-hero-section .index-hero-card h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  
+  .index-hero-section .index-hero-card h3 {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  
+  .index-hero-section .index-hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .index-hero-section .btn-primary.index-hero-cta,
+  .index-hero-section .btn-ghost.index-hero-cta-secondary {
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+  }
+  
+  .index-hero-section .index-hero-scrim {
+    background: linear-gradient(180deg, 
+      rgba(0, 0, 0, 0.65) 0%, 
+      rgba(0, 0, 0, 0.55) 50%, 
+      rgba(0, 0, 0, 0.35) 100%);
+  }
+  
+  .index-hero-section .index-hero-fade-overlay {
+    height: 10vh;
+  }
+}
+</style>
     <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-dropdown-submenu-styles">
@@ -504,16 +725,16 @@
 
   <nav class="navbar" dir="rtl">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <svg class="hamburger-icon" width="24" height="24" viewbox="0 0 24 24" fill="none">
       <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
     </svg>
-    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
+    <svg class="close-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" style="display:none;">
       <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
     </svg>
   </button>
   
   <button class="phone-header-btn" aria-label="Call">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
     </svg>
   </button>
@@ -534,25 +755,27 @@
 </nav>
   
   <main>
-    <section class="home-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-scrim">
-  <!-- Full-bleed background image -->
-  <img data-hero-bg="true" data-context="Warm, professional photo of a gentle practitioner's hands performing complementary medicine treatment on a peaceful baby or young child in a clean, bright, welcoming clinic environment with soft natural lighting, showing care and trust, suitable for alternative health and wellness for infants and children" data-preserve-bg="0" width="1920" height="1080" src="/assets/section-בית-hero-home-hero-bg.webp" alt="טיפול רפואה משלימה לתינוקות וילדים" class="home-hero-bg" data-zappy-editable-image="true">
+    <section class="index-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-card">
+  <!-- Background Image -->
+  <img data-hero-bg="true" class="index-hero-bg" data-context="Bright, airy pediatric complementary medicine clinic room with soft natural daylight streaming through large windows, gentle neutral color palette (warm whites, soft beiges, pale mint greens), modern minimalist medical furniture with rounded edges, plush child-friendly seating, potted plants for warmth, clean organized shelves with natural remedies visible, professional yet welcoming atmosphere, shot from a wide angle showing spacious layout with ample negative space, suitable as a full-bleed hero background for a Hebrew pediatric wellness website" data-preserve-bg="0" width="1920" height="1080" src="/assets/section-בית-hero-index-hero-bg-1.webp" alt="מרפאת רפואה משלימה לילדים - אווירה רגועה ומזמינה" data-zappy-editable-image="true">
   
-  <!-- Dark gradient scrim overlay for text legibility -->
-  <div class="home-hero-scrim" aria-hidden="true"></div>
+  <!-- Scrim Overlay for Text Legibility -->
+  <div class="index-hero-scrim" aria-hidden="true"></div>
   
-  <!-- Text overlay group -->
-  <div class="home-hero-content">
-    
-    
-    <div class="home-hero-cta-group">
-      <a href="#contact" class="btn-primary home-hero-cta">קביעת תור</a>
-      <a href="#about" class="btn-secondary home-hero-cta">למידע נוסף</a>
+  <!-- Content Overlay Card -->
+  <div class="index-hero-content-wrapper">
+    <div class="index-hero-card">
+      <h1>רפואה משלימה לתינוקות וילדים</h1>
+      <h3>טיפול טבעי, בטוח ומקצועי לבריאות ילדכם</h3>
+      <div class="index-hero-cta-row">
+        <a href="#contact" class="btn-primary index-hero-cta">קביעת פגישה</a>
+        <a href="#about" class="btn-ghost index-hero-cta-secondary">למידע נוסף</a>
+      </div>
     </div>
   </div>
   
-  <!-- Bottom fade-out transition -->
-  <div class="home-hero-fade-transition" aria-hidden="true"></div>
+  <!-- Bottom Fade Transition -->
+  <div class="index-hero-fade-overlay" aria-hidden="true"></div>
 </section>
 
 <section class="home-how-it-works-section" data-layout-spec="בית-how-it-works">
@@ -566,7 +789,7 @@
 
     <div class="home-how-it-works-steps zappy-preserve-css-grid" style="display: grid; grid-template-columns: 347.94px 347.95px 347.95px;" id="zappy-auto-grid-1771766621991-qx0xj9" data-zappy-auto-grid="true" data-original-item-width="348" data-original-gap="32px"><div class="home-how-it-works-step">
         <div class="home-how-it-works-step-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M24 16V24L28 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
@@ -575,7 +798,7 @@
         <p class="">נתחיל בשיחה טלפונית קצרה שבה אקשיב לסיפור שלכם, אבין את הצרכים של הילד ואבדוק אם הטיפול ההומאופתי מתאים למצב. זה זמן להרגיש בנוח ולשאול שאלות.</p>
       </div><div class="home-how-it-works-step">
         <div class="home-how-it-works-step-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M38 8H10C8.89543 8 8 8.89543 8 10V38C8 39.1046 8.89543 40 10 40H38C39.1046 40 40 39.1046 40 38V10C40 8.89543 39.1046 8 38 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M16 20H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M16 28H32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -585,7 +808,7 @@
         <p class="">לאחר השיחה, אבנה עבורכם תכנית טיפולית אישית המבוססת על הצרכים הייחודיים של הילד שלכם. התכנית כוללת המליצות ברורות, הנחיות מעשיות ומינונים מדוייקים.</p>
       </div><div class="home-how-it-works-step">
         <div class="home-how-it-works-step-icon">
-          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg data-element-type="icon" data-icon-type="svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             <path d="M44 24C44 18.6957 41.8929 13.6086 38.1421 9.85786C34.3914 6.10714 29.3043 4 24 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"></path>
             <path d="M18 24L24 30L36 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -601,11 +824,11 @@
   </div>
 
   <div class="home-how-it-works-divider-wrapper">
-    <svg aria-hidden="true" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" viewbox="0 0 1200 40" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,40 L0,20 L600,15 L1200,20 L1200,40 Z" fill="var(--bg-light)"></path>
       <line x1="0" y1="20" x2="580" y2="17" stroke="var(--primary)" stroke-width="1" opacity="0.3"></line>
       <line x1="620" y1="17" x2="1200" y2="20" stroke="var(--primary)" stroke-width="1" opacity="0.3"></line>
-      <path d="M580,17 L600,10 L620,17" stroke="var(--primary)" stroke-width="1.5" fill="none" opacity="0.5"></path>
+      <path d="M580,17 L600,10 L620,17" stroke="var(--primary)" stroke-width="1.5" fill="var(--bg-light)" opacity="0.5"></path>
     </svg>
   </div>
 </section>
@@ -671,14 +894,14 @@
   </div>
 
   <div class="home-services-divider-wrapper">
-    <svg aria-hidden="true" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" viewbox="0 0 1200 40" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="home-services-divider-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" style="stop-color:#F7F6F4;stop-opacity:1"></stop>
           <stop offset="100%" style="stop-color:#F3F2EF;stop-opacity:1"></stop>
         </linearGradient>
       </defs>
-      <path d="M0,40 L0,35 L1200,5 L1200,40 Z" fill="url(#home-services-divider-gradient)"></path>
+      <path d="M0,40 L0,35 L1200,5 L1200,40 Z" fill="var(--bg-light)"></path>
     </svg>
   </div>
 </section>
@@ -729,7 +952,7 @@
   </div>
 
   <div class="home-testimonials-divider-wrapper">
-    <svg aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" viewbox="0 0 1200 200" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="testimonials-fade-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1"></stop>
